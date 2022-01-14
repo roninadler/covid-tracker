@@ -1,9 +1,6 @@
 import Head from 'next/head';
 import { Box, Container, Grid } from '@mui/material';
 import { Cases } from '../components/dashboard/cases';
-import { LatestOrders } from '../components/dashboard/latest-orders';
-import { LatestProducts } from '../components/dashboard/latest-products';
-import { Sales } from '../components/dashboard/sales';
 import { TodayCases } from '../components/dashboard/today-cases';
 import { Deaths } from 'src/components/dashboard/deaths';
 import { Recovered } from '../components/dashboard/recovered';
@@ -12,9 +9,10 @@ import { DashboardLayout } from '../components/dashboard-layout';
 import { Active } from 'src/components/dashboard/active';
 import { TodayDeaths } from 'src/components/dashboard/today-deaths';
 import { Critical } from 'src/components/dashboard/critical';
+import {CovidMap} from 'src/components/dashboard/covid-map';
 
-const Dashboard = () => (
-  <>
+function Dashboard() {
+  return (<>
     <Head>
       <title>
         Dashboard | Material Kit
@@ -111,7 +109,7 @@ const Dashboard = () => (
             xl={12}
             xs={12}
           >
-            
+             <CovidMap/>
           </Grid>
           <Grid
             item
@@ -120,7 +118,6 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <LatestProducts sx={{ height: '100%' }} />
           </Grid>
           <Grid
             item
@@ -129,13 +126,13 @@ const Dashboard = () => (
             xl={9}
             xs={12}
           >
-            <LatestOrders />
           </Grid>
         </Grid>
       </Container>
     </Box>
   </>
-);
+  );
+}
 
 Dashboard.getLayout = (page) => (
   <DashboardLayout>
