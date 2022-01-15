@@ -5,29 +5,53 @@ import { CustomerListToolbar } from '../components/customer/customer-list-toolba
 import { DashboardLayout } from '../components/dashboard-layout';
 import { customers } from '../__mocks__/customers';
 
-const Customers = () => (
-  <>
-    <Head>
-      <title>
-        Customers | Material Kit
-      </title>
-    </Head>
-    <Box
-      component="main"
-      sx={{
-        flexGrow: 1,
-        py: 8
-      }}
-    >
-      <Container maxWidth={false}>
-        <CustomerListToolbar />
-        <Box sx={{ mt: 3 }}>
-          <CustomerListResults customers={customers} />
-        </Box>
-      </Container>
-    </Box>
-  </>
-);
+const Customers = () => {
+
+  return(
+    <>
+      <Head>
+        <title>
+          Countries Charts 
+        </title>
+      </Head>
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          py: 8
+        }}
+      >
+        <Container maxWidth={false}>
+          <Grid
+            container
+            spacing={3}
+          >
+            <Grid
+              item
+              lg={12}
+              md={12}
+              xl={12}
+              xs={12}
+            >
+              <CountryPicker countriesList={countriesList} handleCountryChange={handleCountryChange}/>
+            </Grid>
+            <Grid
+              item
+              lg={8}
+              md={12}
+              xl={12}
+              xs={12}
+            >
+              <CountryChart picked={picked} countryData={countryData}  />
+            </Grid>
+            
+          </Grid>
+        </Container>
+      </Box>
+    </>
+  )
+};
+
 Customers.getLayout = (page) => (
   <DashboardLayout>
     {page}

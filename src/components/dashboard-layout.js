@@ -18,6 +18,7 @@ export const DashboardLayout = (props) => {
   const { children } = props;
   const [isSidebarOpen, setSidebarOpen] = useState(true);
 
+  console.log(children)
   return (
     <>
       <DashboardLayoutRoot>

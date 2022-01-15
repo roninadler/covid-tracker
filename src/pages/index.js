@@ -1,9 +1,6 @@
 import Head from 'next/head';
 import { Box, Container, Grid } from '@mui/material';
 import { Cases } from '../components/dashboard/cases';
-import { LatestOrders } from '../components/dashboard/latest-orders';
-import { LatestProducts } from '../components/dashboard/countryChart';
-import { Sales } from '../components/dashboard/sales';
 import {CovidMap} from 'src/components/dashboard/covid-map';
 import { TodayCases } from '../components/dashboard/today-cases';
 import { Deaths } from 'src/components/dashboard/deaths';
@@ -56,9 +53,6 @@ const Dashboard = () => {
      setPicked(true)
   }
 
-
-
-function Dashboard() {
   return (<>
     <Head>
       <title>
@@ -169,7 +163,7 @@ function Dashboard() {
           </Grid>
           <Grid
             item
-            lg={12}
+            lg={12}>
              <CovidMap/>
           </Grid>
           <Grid
@@ -195,4 +189,4 @@ Dashboard.getLayout = (page) => (
   </DashboardLayout>
 );
 
-export default Dashboard;
+export default Dashboard

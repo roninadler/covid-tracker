@@ -4,12 +4,15 @@ import { products } from '../__mocks__/products';
 import { ProductListToolbar } from '../components/product/product-list-toolbar';
 import { ProductCard } from '../components/product/product-card';
 import { DashboardLayout } from '../components/dashboard-layout';
+import { CovidMap } from 'src/components/dashboard/covid-map';
 
-const Products = () => (
-  <>
+const Products = () => {
+
+  return (
+    <>
     <Head>
       <title>
-        Products | Material Kit
+        World Map 
       </title>
     </Head>
     <Box
@@ -20,42 +23,21 @@ const Products = () => (
       }}
     >
       <Container maxWidth={false}>
-        <ProductListToolbar />
-        <Box sx={{ pt: 3 }}>
-          <Grid
-            container
-            spacing={3}
-          >
-            {products.map((product) => (
-              <Grid
-                item
-                key={product.id}
-                lg={4}
-                md={6}
-                xs={12}
-              >
-                <ProductCard product={product} />
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            pt: 3
-          }}
+        <Grid
+          container
+          spacing={3}
         >
-          <Pagination
-            color="primary"
-            count={3}
-            size="small"
-          />
-        </Box>
+          <Grid
+            item
+            lg={12}>
+             <CovidMap/>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   </>
-);
+  )
+};
 
 Products.getLayout = (page) => (
   <DashboardLayout>
