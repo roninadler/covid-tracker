@@ -4,6 +4,7 @@ import { Cases } from '../components/dashboard/cases';
 import { LatestOrders } from '../components/dashboard/latest-orders';
 import { LatestProducts } from '../components/dashboard/countryChart';
 import { Sales } from '../components/dashboard/sales';
+import {CovidMap} from 'src/components/dashboard/covid-map';
 import { TodayCases } from '../components/dashboard/today-cases';
 import { Deaths } from 'src/components/dashboard/deaths';
 import { Recovered } from '../components/dashboard/recovered';
@@ -12,6 +13,7 @@ import { DashboardLayout } from '../components/dashboard-layout';
 import { Active } from 'src/components/dashboard/active';
 import { TodayDeaths } from 'src/components/dashboard/today-deaths';
 import { Critical } from 'src/components/dashboard/critical';
+
 import React, { useEffect, useState } from "react";
 import CountryPicker from 'src/components/dashboard/countryPicker';
 import { CountryChart } from '../components/dashboard/countryChart';
@@ -54,8 +56,10 @@ const Dashboard = () => {
      setPicked(true)
   }
 
-  return (
-  <>
+
+
+function Dashboard() {
+  return (<>
     <Head>
       <title>
         Covid-19 Dashboard 
@@ -156,13 +160,27 @@ const Dashboard = () => {
           </Grid>
           <Grid
             item
-            lg={12}
+            lg={8}
             md={12}
             xl={12}
             xs={12}
           >
             <CountryChart picked={picked} countryData={countryData}  />
           </Grid>
+          <Grid
+            item
+            lg={12}
+             <CovidMap/>
+          </Grid>
+          <Grid
+            item
+            lg={4}
+            md={6}
+            xl={3}
+            xs={12}
+          >
+          </Grid>
+          
           
         </Grid>
       </Container>
