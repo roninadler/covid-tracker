@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Box, Container, Grid } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import { Cases } from '../components/dashboard/cases';
 import {CovidMap} from 'src/components/dashboard/covid-map';
 import { TodayCases } from '../components/dashboard/today-cases';
@@ -14,7 +14,8 @@ import { Critical } from 'src/components/dashboard/critical';
 import React, { useEffect, useState } from "react";
 import CountryPicker from 'src/components/dashboard/countryPicker';
 import { CountryChart } from '../components/dashboard/countryChart';
-import { pickersDayClasses } from '@mui/lab';
+import { Covid19 } from 'src/icons/covid-19';
+
 
 const Dashboard = () => {
   const [data, setData] = useState(null)
@@ -23,7 +24,6 @@ const Dashboard = () => {
   const [picked, setPicked] = useState(false)
 
   const fetchCountry = async (country) => {
-    
     await fetch(`https://disease.sh/v3/covid-19/countries/${country}`)
       .then((res) => res.json())
       .then((data) => {
@@ -59,14 +59,28 @@ const Dashboard = () => {
         Covid-19 Dashboard 
       </title>
     </Head>
-    <Box
-      component="main"
-      sx={{
-        flexGrow: 1,
-        py: 8
-      }}
-    >
-      <Container maxWidth={false}>
+    <Box sx={{ p: 3 }}>
+      <Covid19
+        sx={{
+          height: 42,
+          width: 42
+        }}
+      />
+      <Typography
+          color="inherit"
+          variant="h4"
+          gutterBottom
+          style={{display: 'inline-block', paddingLeft: '35%'}}
+        >
+          Covid-19 Tracker
+      </Typography>
+    </Box>
+    <Box>
+      
+      <Container >
+      <Typography color={"textSecondary"} variant="h5">
+        Global Data
+      </Typography>
         <Grid
           container
           spacing={3}
@@ -164,7 +178,7 @@ const Dashboard = () => {
           <Grid
             item
             lg={12}>
-             <CovidMap/>
+             <CovidMap fetchCountry={fetchCountry} countryData={countryData}/>
           </Grid>
           <Grid
             item

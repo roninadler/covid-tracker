@@ -10,6 +10,10 @@ export function TodayDeaths (props) {
   return(
   <Card
     sx={{ height: '100%' }}
+    style={{ backgroundColor: '#690101', 
+            boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)',
+            transition: '0.3s',
+          }}
   >
     <CardContent>
       <Grid
@@ -19,14 +23,14 @@ export function TodayDeaths (props) {
       >
         <Grid item>
           <Typography
-            color="textSecondary"
+            color="#cdced1"
             gutterBottom
             variant="overline"
           >
             TODAY DEATHS
           </Typography>
           <Typography
-            color="textPrimary"
+            color="white"
             variant="h4"
           >
             {toNiceNumber(todayDeaths)}

@@ -24,7 +24,7 @@ const rounded = num => {
     }
 };
 
-export function CovidMap(props) {
+export function CovidMap() {
     const [name, setName] = useState("");
     const [cases, setCases] = useState("");
     const [active, setActive]= useState("");
@@ -35,6 +35,9 @@ export function CovidMap(props) {
     const [tooltipDisabled, setTooltipDisabled] = useState(true);
     return (
         <div>
+            <Typography style={{paddingTop: '2%'}} color={"textSecondary"} variant="h5">
+                World Map
+            </Typography>
             <ComposableMap data-tip="" projectionConfig={{ scale: 200 }}>
                 <ZoomableGroup>
                     <Geographies geography={geoUrl}>

@@ -1,10 +1,8 @@
 import { Typography } from '@mui/material';
-import { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
 const parseToChart1Object = (obj) => {
-  //console.log(Object.entries(obj))
   let chart1Object = []
   if (obj){
     chart1Object.push({name: Capitalize(Object.entries(obj)[3][0]), cases: obj?.cases})
@@ -20,7 +18,6 @@ const Capitalize = str => (
 )
 
 const parseToChart2Object = (obj) => {
-  //console.log(Object.entries(obj))
   let chart2Object = []
   if (obj){
     chart2Object.push({name: Capitalize(Object.entries(obj)[9][0]), active: obj?.active})
@@ -37,15 +34,13 @@ export const CountryChart = ({countryData, picked}) => {
   let chart2Object = {}
   chart1Object = parseToChart1Object(countryData)
   chart2Object = parseToChart2Object(countryData)
-  console.log(chart1Object)
-  console.log(chart2Object)
-  console.log(picked)
+  
 
   return (
     <>
       {picked ? (
         <div style={{width: '100%', height: '500px'}}>
-        <ResponsiveContainer width={"100%"} height="50%">
+        <ResponsiveContainer width={"150%"} height="50%">
           <BarChart
             width={500}
             height={300}
@@ -69,7 +64,7 @@ export const CountryChart = ({countryData, picked}) => {
 
             </BarChart>
            </ResponsiveContainer>
-          <ResponsiveContainer width={"100%"} height="50%">
+          <ResponsiveContainer width={"150%"} height="50%">
             <BarChart
               width={500}
               height={300}
@@ -88,13 +83,13 @@ export const CountryChart = ({countryData, picked}) => {
               <Tooltip />
               <Legend />
               <Bar dataKey="active" fill="#dae063" />
-              <Bar dataKey="critical" fill="#ad2323" />
+              <Bar dataKey="critical" fill="#e0b341" />
               <Bar dataKey="todayCases" fill="#648ee3" />
               <Bar dataKey="todayDeaths" fill="#690101" />
             </BarChart>
           </ResponsiveContainer>
         </div>
-        ) : <Typography>No Data</Typography>
+        ) : <Typography>Please pick a country to show some data</Typography>
 
       }
     </>

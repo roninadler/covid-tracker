@@ -9,6 +9,10 @@ export function Critical (props) {
   return(
   <Card
     sx={{ height: '100%' }}
+    style={{ backgroundColor: '#e0b341', 
+            boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)',
+            transition: '0.3s',
+          }}
     {...props}
   >
     <CardContent>
@@ -19,14 +23,14 @@ export function Critical (props) {
       >
         <Grid item>
           <Typography
-            color="textSecondary"
+            color="#cdced1"
             gutterBottom
             variant="overline"
           >
             CRITICAL
           </Typography>
           <Typography
-            color="textPrimary"
+            color="white"
             variant="h4"
           >
             {toNiceNumber(props.critical)}

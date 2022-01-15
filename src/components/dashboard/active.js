@@ -8,6 +8,10 @@ export function Active (props) {
   return(
   <Card
     sx={{ height: '100%' }}
+    style={{ backgroundColor: '#dae063', 
+            boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)',
+            transition: '0.3s',
+          }}
     {...props}
   >
     <CardContent>
@@ -18,14 +22,14 @@ export function Active (props) {
       >
         <Grid item>
           <Typography
-            color="textSecondary"
+            color="white"
             gutterBottom
             variant="overline"
           >
             ACTIVE
           </Typography>
           <Typography
-            color="textPrimary"
+            color="white"
             variant="h4"
           >
             {toNiceNumber(props.active)}

@@ -9,6 +9,10 @@ export function TodayCases (props) {
   return(
   <Card
     sx={{ height: '100%' }}
+    style={{ backgroundColor: '#648ee3', 
+            boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)',
+            transition: '0.3s',
+          }}
   >
     <CardContent>
       <Grid
@@ -18,14 +22,14 @@ export function TodayCases (props) {
       >
         <Grid item>
           <Typography
-            color="textSecondary"
+            color="#cdced1"
             gutterBottom
             variant="overline"
           >
             TODAY CASES
           </Typography>
           <Typography
-            color="textPrimary"
+            color="white"
             variant="h4"
           >
             {toNiceNumber(todayCases)}
