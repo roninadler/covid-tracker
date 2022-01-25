@@ -46,6 +46,21 @@ export function CovidMap() {
                                 <Geography
                                     key={geo.rsmKey}
                                     geography={geo}
+                                    onClick={() => {
+                                        const { NAME, POP_EST } = geo.properties;
+                                        setName(NAME);
+                                        fetch(`https://disease.sh/v3/covid-19/countries/${NAME}`)
+                                            .then((res) => res.json())
+                                            .then((data) => {
+                                                setCases(data.cases);
+                                                setDeaths(data.deaths);
+                                                setActive(data.active);
+                                                setTodayCases(data.todayCases);
+                                                setTodayDeaths(data.todayDeaths);
+                                                setTodayRecovered(data.todayRecovered);
+                                                setTooltipDisabled(false);
+                                            });
+                                    }}
                                     onMouseEnter={() => {
                                         const { NAME, POP_EST } = geo.properties;
                                         setName(NAME);

@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Typography,Divider } from '@mui/material';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
@@ -64,30 +64,31 @@ export const CountryChart = ({countryData, picked}) => {
 
             </BarChart>
            </ResponsiveContainer>
-          <ResponsiveContainer width={"150%"} height="50%">
-            <BarChart
-              width={500}
-              height={300}
-              data={chart2Object}
-              margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-              }}
-              barSize={30}
-              >
-              <CartesianGrid strokeDasharray={"3 3"} />
-              <XAxis dataKey="name"   />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="active" fill="#dae063" />
-              <Bar dataKey="critical" fill="#e0b341" />
-              <Bar dataKey="todayCases" fill="#648ee3" />
-              <Bar dataKey="todayDeaths" fill="#690101" />
-            </BarChart>
-          </ResponsiveContainer>
+           <Divider style={{paddingTop: '5%',}}/>
+            <ResponsiveContainer width={"150%"} height="50%" >
+              <BarChart
+                width={500}
+                height={300}
+                data={chart2Object}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+                barSize={30}
+                >
+                <CartesianGrid strokeDasharray={"3 3"} />
+                <XAxis dataKey="name"   />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="active" fill="#dae063" />
+                <Bar dataKey="critical" fill="#e0b341" />
+                <Bar dataKey="todayCases" fill="#648ee3" />
+                <Bar dataKey="todayDeaths" fill="#690101" />
+              </BarChart>
+            </ResponsiveContainer>
         </div>
         ) : <Typography>Please pick a country to show some data</Typography>
 
